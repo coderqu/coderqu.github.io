@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>101. Symmetric Tree | 锋锋小站</title>
+  <title>94. Binary Tree Inorder Traversal | 锋锋小站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="如何判断一个树是不是对称？">
+  <meta name="description" content="中序遍历二叉树">
 <meta property="og:type" content="article">
-<meta property="og:title" content="101. Symmetric Tree">
-<meta property="og:url" content="http://yoursite.com/2020/08/01/101-Symmetric-Tree/index.html">
+<meta property="og:title" content="94. Binary Tree Inorder Traversal">
+<meta property="og:url" content="http://yoursite.com/2020/08/02/94-Binary-Tree-Inorder-Traversal/index.html">
 <meta property="og:site_name" content="锋锋小站">
-<meta property="og:description" content="如何判断一个树是不是对称？">
+<meta property="og:description" content="中序遍历二叉树">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-08-01T08:48:24.000Z">
-<meta property="article:modified_time" content="2020-08-01T12:29:09.789Z">
+<meta property="article:published_time" content="2020-08-02T05:23:54.000Z">
+<meta property="article:modified_time" content="2020-08-02T05:28:51.334Z">
 <meta property="article:author" content="锋锋">
 <meta property="article:tag" content="Tree">
 <meta name="twitter:card" content="summary">
@@ -155,40 +155,36 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-101-Symmetric-Tree" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-94-Binary-Tree-Inorder-Traversal" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      101. Symmetric Tree
+      94. Binary Tree Inorder Traversal
     </h1>
   
 
         
-        <a href="/2020/08/01/101-Symmetric-Tree/" class="archive-article-date">
-  	<time datetime="2020-08-01T08:48:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-01</time>
+        <a href="/2020/08/02/94-Binary-Tree-Inorder-Traversal/" class="archive-article-date">
+  	<time datetime="2020-08-02T05:23:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-02</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>如何判断一个树是不是对称？<a id="more"></a> </p>
-<ol>
-<li>如果一个树是空的，那它是对称的。</li>
-<li>判断左子树和右子树是否对称。</li>
-</ol>
-<p>如何判断左子树和右子树是否对称？</p>
-<ol>
-<li>如果左子树和右子树都为空，那它们是对称的。</li>
-<li>如果左子树和右子树只有一个为空，那它们不是对称的。</li>
-<li>判断左子树和右子树的根节点的值是否相等。</li>
-<li>判断左子树的左子树和右子树的右子树是否对称。</li>
-<li>判断左子树的右子树和右子树的左子树是否对称。</li>
-</ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">isSymmetric</span>(<span class="params">self, root: TreeNode</span>) -&gt; bool:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isSymmetricTree</span>(<span class="params">p: TreeNode, q: TreeNode</span>):</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> p <span class="keyword">and</span> <span class="keyword">not</span> q:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> q <span class="keyword">or</span> <span class="keyword">not</span> p:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">return</span> p.val == q.val <span class="keyword">and</span> isSymmetricTree(p.left, q.right) <span class="keyword">and</span> isSymmetricTree(p.right, q.left)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> root:</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">    <span class="keyword">return</span> isSymmetricTree(root.left, root.right)</span><br></pre></td></tr></table></figure>
+        <p>中序遍历二叉树</p>
+<a id="more"></a>
+
+<p>递归方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">def inorderTraversal(self, root: TreeNode) -&gt; List[int]:</span><br><span class="line">    def inorder(p, res):</span><br><span class="line">        if p:</span><br><span class="line">            inorder(p.left, res)</span><br><span class="line">            res.append(p.val)</span><br><span class="line">            inorder(p.right, res)</span><br><span class="line"></span><br><span class="line">    res &#x3D; []</span><br><span class="line">    inorder(root, res)</span><br><span class="line">    return res</span><br></pre></td></tr></table></figure>
+
+<p>非递归方式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">def inorderTraversal(self, root: TreeNode) -&gt; List[int]:</span><br><span class="line">    res &#x3D; []</span><br><span class="line">    tStack &#x3D; []</span><br><span class="line">    curNode &#x3D; root</span><br><span class="line">    </span><br><span class="line">    while curNode or tStack:</span><br><span class="line">        while curNode:</span><br><span class="line">            tStack.append(curNode)</span><br><span class="line">            curNode &#x3D; curNode.left</span><br><span class="line">        if tStack:</span><br><span class="line">            curNode &#x3D; tStack.pop()</span><br><span class="line">            res.append(curNode.val)</span><br><span class="line">            curNode &#x3D; curNode.right</span><br><span class="line"></span><br><span class="line">    return res</span><br></pre></td></tr></table></figure>
+
+<p>莫里斯遍历（线索二叉树）</p>
 
       
 
@@ -290,7 +286,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/08/01/101-Symmetric-Tree/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/08/02/94-Binary-Tree-Inorder-Traversal/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -304,18 +300,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/08/02/94-Binary-Tree-Inorder-Traversal/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          94. Binary Tree Inorder Traversal
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/08/01/100-Same-Tree/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">100. Same Tree</div>
+    <a href="/2020/08/01/101-Symmetric-Tree/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">101. Symmetric Tree</div>
       <i class="icon-circle-right"></i>
     </a>
   
